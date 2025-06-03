@@ -1,2 +1,2 @@
 FROM libretranslate/libretranslate
-CMD ["libretranslate", "--host", "0.0.0.0", "--port", "5000"]
+CMD ["--host", "0.0.0.0", "--port", "5000"]
