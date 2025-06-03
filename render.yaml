@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: libretranslate
+    env: docker
+    plan: free
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    # envVars:
+    #   - key: LT_LOAD_ONLY
+    #     value: en,es,fr  # Загружаются только английский, испанский и французский
+    #   - key: LT_API_KEYS
+    #     value: secret-api-key  # (опционально) — включение API-ключей
