@@ -1,14 +1,15 @@
 services:
   - type: web
     name: libretranslate
-    env: docker
+    env: python
     plan: free
     autoDeploy: true
-    dockerfilePath: ./Dockerfile
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 4 -b 0.0.0.0:$PORT main:main
     envVars:
       - key: PORT
-        value: 5000
-    #   - key: LT_LOAD_ONLY
-    #     value: en,es,fr  # Загружаются только английский, испанский и французский
-    #   - key: LT_API_KEYS
-    #     value: secret-api-key  # (опционально) — включение API-ключей
+        value: 10000
+      - key: LT_LOAD_ONLY
+        value: en,es,fr  # Only load English, Spanish, French
+      # - key: LT_API_KEYS
+      #   value: secret-api-key  # (optional) – enable API keys
